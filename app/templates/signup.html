@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+.signup-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.auth-wrapper{
+    display:flex;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* Left Side */
+
+.info-card{
+    width:450px;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    color:white;
+    padding:50px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.info-card h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.info-card p{
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.feature-box{
+    background:rgba(255,255,255,0.15);
+    padding:20px;
+    border-radius:12px;
+}
+
+.feature-box h3{
+    margin-bottom:15px;
+}
+
+.feature-box p{
+    margin:12px 0;
+}
+
+/* Right Side */
+
+.signup-card{
+    width:450px;
+    background:#fff;
+    padding:40px;
+}
+
+.signup-card h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#333;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    color:#555;
+    font-weight:500;
+}
+
+.form-group input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    outline:none;
+    transition:.3s;
+}
+
+.form-group input:focus{
+    border-color:#667eea;
+    box-shadow:0 0 8px rgba(102,126,234,.3);
+}
+
+.signup-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#667eea;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.signup-btn:hover{
+    background:#5563d6;
+}
+
+.login-text{
+    margin-top:20px;
+    text-align:center;
+    color:#666;
+}
+
+.login-text a{
+    text-decoration:none;
+    color:#667eea;
+    font-weight:600;
+}
+
+.alert{
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:8px;
+    background:#f8d7da;
+    color:#721c24;
+    text-align:center;
+}
+
+@media(max-width:900px){
+
+    .auth-wrapper{
+        flex-direction:column;
+        width:100%;
+        max-width:500px;
+    }
+
+    .info-card,
+    .signup-card{
+        width:100%;
+    }
+
+}
+</style>
+
+<div class="signup-container">
+
+    <div class="auth-wrapper">
+
+        <!-- Left Side -->
+
+        <div class="info-card">
+
+            <h1>NexCart</h1>
+
+            <p>
+                Create your NexCart account and start your shopping journey.
+                Access exclusive offers, save products, track orders, and enjoy
+                a secure shopping experience.
+            </p>
+
+            <div class="feature-box">
+
+                <h3>Benefits of Joining</h3>
+
+                <p>✅ Quick & Secure Registration</p>
+                <p>🛒 Save Products to Wishlist</p>
+                <p>🚚 Faster Checkout Experience</p>
+                <p>🎁 Exclusive Discounts</p>
+                <p>📦 Easy Order Tracking</p>
+                <p>📞 24/7 Customer Support</p>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="signup-card">
+
+            <h2>Sign up</h2>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label>Username</label>
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Choose Username"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter Email Address"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Create Password"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input
+                        type="password"
+                        name="confirm_password"
+                        placeholder="Confirm Password"
+                        required>
+                </div>
+
+                <button type="submit" class="signup-btn">
+                    Create Account
+                </button>
+
+            </form>
+
+            <div class="login-text">
+                Already have an account?
+                <a href="{% url 'login' %}">Login</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

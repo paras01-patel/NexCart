@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+.login-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.auth-wrapper{
+    display:flex;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* Left Side */
+
+.info-card{
+    width:450px;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    color:white;
+    padding:50px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.info-card h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.info-card p{
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.feature-box{
+    background:rgba(255,255,255,0.15);
+    padding:20px;
+    border-radius:12px;
+}
+
+.feature-box h3{
+    margin-bottom:15px;
+}
+
+.feature-box p{
+    margin:12px 0;
+}
+
+/* Right Side */
+
+.login-card{
+    width:400px;
+    background:#fff;
+    padding:40px;
+}
+
+.login-card h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#333;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    color:#555;
+    font-weight:500;
+}
+
+.form-group input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    outline:none;
+    transition:.3s;
+}
+
+.form-group input:focus{
+    border-color:#667eea;
+    box-shadow:0 0 8px rgba(102,126,234,.3);
+}
+
+.login-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#667eea;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:#5563d6;
+}
+
+.extra-links{
+    margin-top:15px;
+    text-align:center;
+}
+
+.extra-links a{
+    text-decoration:none;
+    color:#667eea;
+}
+
+.signup-text{
+    margin-top:15px;
+    text-align:center;
+    color:#666;
+}
+
+.signup-text a{
+    text-decoration:none;
+    color:#667eea;
+    font-weight:600;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+    .auth-wrapper{
+        flex-direction:column;
+        width:100%;
+        max-width:450px;
+    }
+
+    .info-card,
+    .login-card{
+        width:100%;
+    }
+
+
+}
+.alert{
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:8px;
+    text-align:center;
+    font-weight:500;
+}
+
+.alert.success{
+    background:#d4edda;
+    color:#155724;
+    border:1px solid #c3e6cb;
+}
+
+.alert.error{
+    background:#f8d7da;
+    color:#721c24;
+    border:1px solid #f5c6cb;
+}
+
+.alert.warning{
+    background:#fff3cd;
+    color:#856404;
+    border:1px solid #ffeeba;
+}
+</style>
+
+<div class="login-container">
+    {% if messages %}
+                {% for message in messages %}
+                    <div class="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+    <div class="auth-wrapper">
+
+        <!-- Left Side Information -->
+
+        <div class="info-card">
+
+            <h1>NexCart</h1>
+
+            <p>
+                Welcome to NexCart, your trusted online shopping destination.
+                Discover premium products, exciting deals, secure payments,
+                and lightning-fast delivery all in one place.
+            </p>
+
+            <div class="feature-box">
+
+                <h3>Why Choose NexCart?</h3>
+
+                <p>✅ Secure Login & Checkout</p>
+                <p>🚚 Fast Delivery Across India</p>
+                <p>💳 Multiple Payment Options</p>
+                <p>🎁 Daily Offers & Discounts</p>
+                <p>📦 Easy Order Tracking</p>
+                <p>📞 24/7 Customer Support</p>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side Login Form -->
+
+        <div class="login-card">
+
+            <h2>Login</h2>
+            <h2>Login</h2>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert {{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label>Username</label>
+                    <input
+                        type="text"
+                        username="username"
+                        placeholder="Enter Username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter Password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="login-btn">
+                    Login
+                </button>
+
+            </form>
+
+            <div class="extra-links">
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <div class="signup-text">
+                Don't have an account?
+                <a href="{% url 'signup' %}">Sign Up</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
