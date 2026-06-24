@@ -6,8 +6,8 @@ from django.views.decorators.cache import never_cache
 
 # SIGNUP
 @never_cache
-def home(req):
-    return render(req,'home.html')
+def populer(req):
+    return render(req,'populer.html')
 
 @never_cache
 def signup(req):
@@ -72,7 +72,7 @@ def login(req):
             if user.check_password(password):
                 req.session['username']=user.username
                 messages.success(req,"successfully login ")
-                return redirect('home')
+                return redirect('populer')
             
             else:
                 messages.error(req,"wrong password")
