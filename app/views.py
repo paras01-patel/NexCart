@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.views.decorators.cache import never_cache
 
 
 # SIGNUP
-
+@never_cache
 def home(req):
     return render(req,'home.html')
 
-
+@never_cache
 def signup(req):
     if req.method == "POST":
         username = req.POST.get('username')
@@ -55,7 +56,7 @@ def signup(req):
 
 
 # LOGIN PAGE
-
+@never_cache
 def login(req):
     if req.method=="POST":
         username=req.POST.get('username')
@@ -82,9 +83,12 @@ def login(req):
         
     return render(req, "login.html")
 
+@never_cache
 def logout(req):
     req.session.flush()
     return redirect('login')
 
+
+@never_cache
 def adminpanel(req):
     return render(req,'adminpanel.html')
