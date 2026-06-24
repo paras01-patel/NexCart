@@ -1,272 +1,391 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}NexCart{% endblock %}</title>
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}NexCart{% endblock %}</title>
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:'Segoe UI',sans-serif;
-        }
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                font-family:'Segoe UI',sans-serif;
+            }
 
-        body{
-            background:#f4f6f9;
-            min-height:100vh;
-        }
+            body{
+                background:#f4f6f9;
+                min-height:100vh;
+            }
 
-        /* Navbar */
-        nav{
-            background:white;
-            color:#38bdf8;
-            padding:15px 50px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-        }
+            /* Navbar */
+            nav{
+                background:white;
+                color:#38bdf8;
+                padding:15px 50px;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+            }
 
-        .logo{
-            font-size:28px;
-            font-weight:bold;
-        }
+            .logo{
+                font-size:28px;
+                font-weight:bold;
+            }
 
-        .nav-links{
-            list-style:none;
-            display:flex;
-            gap:20px;
-        }
+            .nav-links{
+                list-style:none;
+                display:flex;
+                gap:20px;
+            }
 
-.nav-links a{
-    color:black;
-    text-decoration:none;
-    padding-bottom:8px;
-    border-bottom:2px solid transparent;
-    transition:0.3s;
-}
+    .nav-links a{
+        color:black;
+        text-decoration:none;
+        padding-bottom:8px;
+        border-bottom:2px solid transparent;
+        transition:0.3s;
+    }
 
-.nav-links a:hover{
-    color:#38bdf8;
-    border-bottom:2px solid #38bdf8;
-}
+    .nav-links a:hover{
+        color:#38bdf8;
+        border-bottom:2px solid #38bdf8;
+    }
 
-        /* Main Content */
-        .container{
-            padding:30px;
-        }
+            /* Main Content */
+            .container{
+                padding:30px;
+            }
+        
+    .line{
+        border: none;
+        height: 1px;
+        background-color: rgb(197, 197, 197);
+    }
+    .footer{
+        background:#111827;
+        color:#fff;
+        margin-top:60px;
+    }
+
+    .footer-container{
+        max-width:1400px;
+        margin:auto;
+        padding:50px 80px;
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:40px;
+    }
+
+    .footer-section h2{
+        color:#38bdf8;
+        margin-bottom:15px;
+    }
+
+    .footer-section h3{
+        margin-bottom:15px;
+        color:#38bdf8;
+    }
+
+    .footer-section p{
+        color:#d1d5db;
+        line-height:1.8;
+    }
+
+    .footer-section ul{
+        list-style:none;
+    }
+
+    .footer-section ul li{
+        margin:10px 0;
+    }
+
+    .footer-section ul li a{
+        color:#d1d5db;
+        text-decoration:none;
+        transition:.3s;
+    }
+
+    .footer-section ul li a:hover{
+        color:#38bdf8;
+        padding-left:5px;
+    }
+
+    .footer hr{
+        border:none;
+        height:1px;
+        background:#374151;
+    }
+
+    .footer-bottom{
+        text-align:center;
+        padding:20px;
+        color:#9ca3af;
+    }
+
+    .search-box form{
+        display:flex;
+        align-items:center;
+    }
+
+    .search-box input{
+        width:550px;
+        padding:10px 25px;
+        border:1px solid #ddd;
+        border-right:none;
+        border-radius:8px 0 0 8px;
+        outline:none;
+    }
+
+    .search-box input:focus{
+        border-color:#38bdf8;
+    }
+
+    .search-box button{
+        padding:10px 30px;
+        border:none;
+        background:#38bdf8;
+        color:white;
+        cursor:pointer;
+        border-radius:0 8px 8px 0;
+        transition:.3s;
+    }
+
+    .search-box button:hover{
+        background:#0ea5e9;
+    }   
     
-.line{
-    border: none;
-    height: 1px;
-    background-color: rgb(197, 197, 197);
-}
-.footer{
-    background:#111827;
-    color:#fff;
-    margin-top:60px;
+    .account-dropdown{
+    position:relative;
+    display:inline-block;
 }
 
-.footer-container{
-    max-width:1400px;
-    margin:auto;
-    padding:50px 80px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:40px;
+.account-btn{
+    background:none;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
+    padding:10px;
+    font-weight:600;
 }
 
-.footer-section h2{
-    color:#38bdf8;
+.dropdown-content{
+    display:none;
+    position:absolute;
+    right:0;
+    top:100%;
+    width:260px;
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    z-index:1000;
+}
+
+.account-dropdown:hover .dropdown-content{
+    display:block;
+}
+
+.dropdown-header{
+    text-align:center;
     margin-bottom:15px;
 }
 
-.footer-section h3{
-    margin-bottom:15px;
-    color:#38bdf8;
+.dropdown-header h3{
+    color:#111827;
+    margin-bottom:5px;
 }
 
-.footer-section p{
-    color:#d1d5db;
-    line-height:1.8;
+.dropdown-header p{
+    color:#6b7280;
+    font-size:14px;
 }
 
-.footer-section ul{
-    list-style:none;
-}
-
-.footer-section ul li{
-    margin:10px 0;
-}
-
-.footer-section ul li a{
-    color:#d1d5db;
+.dropdown-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    padding:12px;
+    border-radius:8px;
     text-decoration:none;
+    font-weight:600;
+    margin-top:10px;
     transition:.3s;
 }
 
-.footer-section ul li a:hover{
-    color:#38bdf8;
-    padding-left:5px;
-}
-
-.footer hr{
-    border:none;
-    height:1px;
-    background:#374151;
-}
-
-.footer-bottom{
-    text-align:center;
-    padding:20px;
-    color:#9ca3af;
-}
-
-.search-box form{
-    display:flex;
-    align-items:center;
-}
-
-.search-box input{
-    width:550px;
-    padding:10px 25px;
-    border:1px solid #ddd;
-    border-right:none;
-    border-radius:8px 0 0 8px;
-    outline:none;
-}
-
-.search-box input:focus{
-    border-color:#38bdf8;
-}
-
-.search-box button{
-    padding:10px 30px;
-    border:none;
+.signup-btn{
     background:#38bdf8;
     color:white;
-    cursor:pointer;
-    border-radius:0 8px 8px 0;
-    transition:.3s;
 }
 
-.search-box button:hover{
+.signup-btn:hover{
     background:#0ea5e9;
-}   
-    </style>
+}
 
-    {% block css %}
-    {% endblock %}
-</head>
-<body>
+.login-btn{
+    background:#f3f4f6;
+    color:#111827;
+}
 
-    <!-- Navbar -->
-    <nav>
-        <div class="logo">NexCart</div>
-        <div class="search-box">
-        <form method="GET">
-            <input type="text" placeholder="Search Products or Product code" name="q">
-            <button type="submit">Search</button>
-        </form>
-    </div>
+.login-btn:hover{
+    background:#e5e7eb;
+}
 
-        <ul class="nav-links">
-            
-            <li><a href="{% url 'login' %}">Home</a></li>
-            {% if request.session.username %}
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'signup' %}">Sign In</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    <hr class="line">
-    <nav>
-        <ul class="nav-links">
-            <li><a href="">Populer</a></li>
-<li><a href="">Mobiles</a></li>
-<li><a href="">Electronics</a></li>
-<li><a href="">Computers</a></li>
-<li><a href="">Fashion</a></li>
-<li><a href="">Watches</a></li>
-<li><a href="">Kitchen</a></li>
-<li><a href=""> Personal Care</a></li>
-<li><a href="">Books</a></li>
-<li><a href=""> Games</a></li>
-<li><a href="">Fitness</a></li>
-<li><a href="">Sports</a></li>
-<li><a href="">Grocery</a></li>
-<li><a href="">Pet Supplies</a></li>
-<li><a href="">Baby Products</a></li>
-<li><a href="">Health Care</a></li>
-<li><a href="">Jewellery</a></li>
-<li><a href="">Offers</a></li>
+.logout-btn{
+    background:#ef4444;
+    color:white;
+}
 
-        </ul>
-    </nav>
-    <hr class="line">
+.logout-btn:hover{
+    background:#dc2626;
+}
+.account-dropdown{
+    color:black;
+    font-weight:500;
+    cursor:pointer;
+}
+        </style>
 
-    <!-- Content -->
-    <div class="container">
-        {% block content %}
+        {% block css %}
         {% endblock %}
-    </div>
+    </head>
+    <body>
 
-    <!-- Footer -->
-  <footer class="footer">
-
-    <div class="footer-container">
-
-        <div class="footer-section">
-            <h2>NexCart</h2>
-            <p>
-                Your trusted online shopping destination for electronics,
-                fashion, home essentials, beauty products, and much more.
-            </p>
+        <!-- Navbar -->
+        <nav>
+            <div class="logo">NexCart</div>
+            <div class="search-box">
+            <form method="GET">
+                <input type="text" placeholder="Search Products or Product code" name="q">
+                <button type="submit">Search</button>
+            </form>
         </div>
 
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Products</a></li>
-                <li><a href="">Categories</a></li>
-                <li><a href="">Offers</a></li>
+    <div class="account-dropdown">
+            {% if request.session.username %}
+            👋 {{ request.session.username }}
+            {% else %}
+                👤 Account
+            {% endif %}
+
+    <div class="dropdown-content">
+
+        {% if request.session.username %}
+            <div class="dropdown-header">
+                <h3>Welcome Back</h3>
+                <p>Manage your NexCart account</p>
+            </div>
+
+            <a href="{% url 'logout' %}" class="dropdown-btn logout-btn">
+                Logout
+            </a>
+
+        {% else %}
+
+            <div class="dropdown-header">
+                <h3>Hello User</h3>
+                <p>To access your NexCart account</p>
+            </div>
+
+            <a href="{% url 'signup' %}" class="dropdown-btn signup-btn">
+                Sign Up
+            </a>
+
+            <a href="{% url 'login' %}" class="dropdown-btn login-btn">
+                Login
+            </a>
+
+        {% endif %}
+
+    </div>
+</div>
+</div>
+        </nav>
+        <hr class="line">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="">Populer</a></li>
+    <li><a href="">Mobiles</a></li>
+    <li><a href="">Electronics</a></li>
+    <li><a href="">Computers</a></li>
+    <li><a href="">Fashion</a></li>
+    <li><a href="">Watches</a></li>
+    <li><a href="">Kitchen</a></li>
+    <li><a href=""> Personal Care</a></li>
+    <li><a href="">Books</a></li>
+    <li><a href=""> Games</a></li>
+    <li><a href="">Fitness</a></li>
+    <li><a href="">Sports</a></li>
+    <li><a href="">Grocery</a></li>
+    <li><a href="">Pet Supplies</a></li>
+    <li><a href="">Baby Products</a></li>
+    <li><a href="">Health Care</a></li>
+    <li><a href="">Jewellery</a></li>
+    <li><a href="">Offers</a></li>
+
             </ul>
+        </nav>
+        <hr class="line">
+
+        <!-- Content -->
+        <div class="container">
+            {% block content %}
+            {% endblock %}
         </div>
 
-        <div class="footer-section">
-            <h3>Customer Service</h3>
-            <ul>
-                <li><a href="">Contact Us</a></li>
-                <li><a href="">FAQs</a></li>
-                <li><a href="">Returns</a></li>
-                <li><a href="">Track Order</a></li>
-            </ul>
+        <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <h2>NexCart</h2>
+                <p>
+                    Your trusted online shopping destination for electronics,
+                    fashion, home essentials, beauty products, and much more.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Products</a></li>
+                    <li><a href="">Categories</a></li>
+                    <li><a href="">Offers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="">FAQs</a></li>
+                    <li><a href="">Returns</a></li>
+                    <li><a href="">Track Order</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📧 support@nexcart.com</p>
+                <p>📞 +91 6263442343 </p>
+                <p>📍 India</p>
+            </div>
+
         </div>
 
-        <div class="footer-section">
-            <h3>Contact</h3>
-            <p>📧 support@nexcart.com</p>
-            <p>📞 +91 6263442343 </p>
-            <p>📍 India</p>
+        <hr>
+
+        <div class="footer-bottom">
+            <p>© 2026 NexCart. All Rights Reserved.</p>
         </div>
 
-    </div>
+    </footer>
 
-    <hr>
+        {% block js %}
+        {% endblock %}
 
-    <div class="footer-bottom">
-        <p>© 2026 NexCart. All Rights Reserved.</p>
-    </div>
-
-</footer>
-
-    {% block js %}
-    {% endblock %}
-
-</body>
-</html>
+    </body>
+    </html>
