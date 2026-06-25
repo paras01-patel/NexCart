@@ -3,12 +3,6 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views.decorators.cache import never_cache
 
-
-# SIGNUP
-@never_cache
-def populer(req):
-    return render(req,'populer.html')
-
 @never_cache
 def signup(req):
     if req.method == "POST":
@@ -92,3 +86,13 @@ def logout(req):
 @never_cache
 def adminpanel(req):
     return render(req,'adminpanel.html')
+
+
+
+@never_cache
+def populer(req):
+    return render(req,'populer.html')
+
+
+def jewellery(req):
+    return render(req,'jewellery.html')

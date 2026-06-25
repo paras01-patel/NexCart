@@ -25,21 +25,15 @@ body{
 .top-navbar{
     background:#fff;
     padding:0 40px;
-    height:70px;
+    height:80px;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:20px;
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    height:100%;
-}
-
 .logo img{
-    height:55px;
+    height:75px;   /* bada logo */
     width:auto;
     display:block;
 }
@@ -211,7 +205,7 @@ body{
 /* ================= CONTENT ================= */
 
 .container{
-    padding:30px;
+    padding:0px;
 }
 
 /* ================= LINE ================= */
@@ -343,7 +337,7 @@ body{
         <hr class="line">
         <nav class="category-navbar">
             <ul class="nav-links">
-                <li><a href="">Populer</a></li>
+                <li><a href="/">Populer</a></li>
     <li><a href="">Mobiles</a></li>
     <li><a href="">Electronics</a></li>
     <li><a href="">Computers</a></li>
@@ -354,12 +348,12 @@ body{
     <li><a href="">Books</a></li>
     <li><a href=""> Games</a></li>
     <li><a href="">Fitness</a></li>
-    <li><a href="">Sports</a></li>
+    <li><a href="">Shoes</a></li>
     <li><a href="">Grocery</a></li>
     <li><a href="">Pet Supplies</a></li>
     <li><a href="">Baby Products</a></li>
     <li><a href="">Health Care</a></li>
-    <li><a href="">Jewellery</a></li>
+    <li><a href="{% url 'jewellery' %}">Jewellery</a></li>
     <li><a href="">Offers</a></li>
 
             </ul>
