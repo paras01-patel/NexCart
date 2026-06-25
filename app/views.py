@@ -96,3 +96,7 @@ def populer(req):
 
 def jewellery(req):
     return render(req,'jewellery.html')
+
+
+def mobile(req):
+    return render(req,'mobile.html')

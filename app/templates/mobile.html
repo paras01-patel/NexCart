@@ -1,3 +1,400 @@
 {% extends "base.html" %}
+
 {% block content %}
+
+<style>
+.banner{
+    width:100%;
+    height:700px;
+    object-fit:cover;
+    display:block;
+    padding:10px;
+}
+
+.product-row{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    flex-wrap:wrap;
+    margin:40px 0;
+}
+
+.product-card{
+    width:220px;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    transition:.3s;
+    cursor:pointer;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+}
+
+.product-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    display:block;
+}
+
+.product-info{
+    padding:12px;
+}
+
+.product-title{
+    font-size:15px;
+    font-weight:600;
+    color:#111827;
+    margin-bottom:8px;
+}
+
+.product-price{
+    color:#e11d48;
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.product-desc{
+    color:#6b7280;
+    font-size:13px;
+    line-height:1.5;
+    margin-bottom:12px;
+}
+
+.buy-btn{
+    width:100%;
+    border:none;
+    background:#38bdf8;
+    color:white;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.buy-btn:hover{
+    background:#0ea5e9;
+}
+</style>
+
+<img
+class="banner"
+src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782377072/jeweleery_offer1_sp0lvl.jpg"
+alt="Banner Image">
+
+<div class="product-row">
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399881/p13_llhwgq.jpg">
+    <div class="product-info">
+        <div class="product-title">Royal Gold Necklace</div>
+        <div class="product-price">₹24,999</div>
+        <div class="product-desc">Elegant royal gold necklace crafted for weddings and special occasions.</div>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399880/p14_rvbjx3.jpg">
+    <div class="product-info">
+        <div class="product-title">Bridal Gold Necklace</div>
+        <div class="product-price">₹26,999</div>
+        <div class="product-desc">Premium bridal necklace with traditional detailing and luxurious finish.</div>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399879/p15_tfawp2.jpg">
+    <div class="product-info">
+        <div class="product-title">Temple Gold Necklace</div>
+        <div class="product-price">₹22,499</div>
+        <div class="product-desc">Traditional temple-inspired necklace designed for festive celebrations.</div>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399879/p16_iemavc.jpg">
+    <div class="product-info">
+        <div class="product-title">Designer Gold Necklace</div>
+        <div class="product-price">₹19,999</div>
+        <div class="product-desc">Modern designer necklace combining elegance and contemporary style.</div>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399878/p17_uvsuv6.jpg">
+    <div class="product-info">
+        <div class="product-title">Premium Gold Necklace</div>
+        <div class="product-price">₹29,999</div>
+        <div class="product-desc">Luxury gold necklace with a rich finish for grand occasions.</div>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-row">
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399878/s1_sqg7hy.jpg" alt="">
+        <div class="product-info">
+            <div class="product-title">Traditional Gold Necklace</div>
+            <div class="product-price">₹18,999</div>
+            <div class="product-desc">
+                Traditional gold necklace with elegant handcrafted detailing.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399877/s2_bjlvsd.jpg" alt="">
+        <div class="product-info">
+            <div class="product-title">Luxury Gold Necklace</div>
+            <div class="product-price">₹27,999</div>
+            <div class="product-desc">
+                Premium necklace designed for weddings and grand occasions.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399876/s3_uvefli.jpg" alt="">
+        <div class="product-info">
+            <div class="product-title">Heritage Gold Necklace</div>
+            <div class="product-price">₹22,499</div>
+            <div class="product-desc">
+                Heritage-inspired design with a timeless traditional look.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399875/s4_nefb1x.jpg" alt="">
+        <div class="product-info">
+            <div class="product-title">Festive Gold Necklace</div>
+            <div class="product-price">₹20,999</div>
+            <div class="product-desc">
+                Perfect necklace for festivals, celebrations and family events.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399875/s5_yps4cy.jpg" alt="">
+        <div class="product-info">
+            <div class="product-title">Signature Gold Necklace</div>
+            <div class="product-price">₹31,999</div>
+            <div class="product-desc">
+                Exclusive signature collection with a luxurious finish.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<div class="product-row">
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399875/o1_f6v9ii.jpg" alt="">
+        <div class="product-info">
+            <div class="product-title">Classic Gold Necklace</div>
+            <div class="product-price">₹21,999</div>
+            <div class="product-desc">
+                Classic gold necklace with a timeless design for every occasion.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399873/o2_kpyqdq.jpg" alt="">
+        <div class="product-info">
+            <div class="product-title">Wedding Gold Necklace</div>
+            <div class="product-price">₹28,499</div>
+            <div class="product-desc">
+                Elegant wedding necklace crafted to enhance your bridal look.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399873/o3_hyh9x3.jpg" alt="">
+        <div class="product-info">
+            <div class="product-title">Antique Gold Necklace</div>
+            <div class="product-price">₹25,999</div>
+            <div class="product-desc">
+                Antique-style necklace featuring intricate traditional patterns.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399872/o4_gkmhm1.jpg" alt="">
+        <div class="product-info">
+            <div class="product-title">Ethnic Gold Necklace</div>
+            <div class="product-price">₹23,499</div>
+            <div class="product-desc">
+                Ethnic jewellery piece perfect for festivals and family functions.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399870/o5_oqxnr4.jpg" alt="">
+        <div class="product-info">
+            <div class="product-title">Elegant Gold Necklace</div>
+            <div class="product-price">₹30,999</div>
+            <div class="product-desc">
+                Premium elegant necklace with luxurious finishing and shine.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="product-row">
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399870/i1_pfoglt.jpg">
+        <div class="product-info">
+            <div class="product-title">Royal Diamond Ring</div>
+            <div class="product-price">₹14,999</div>
+            <div class="product-desc">
+                Elegant diamond ring crafted for weddings, engagements and special occasions.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399870/i2_gourox.jpg">
+        <div class="product-info">
+            <div class="product-title">Gold Bridal Ring</div>
+            <div class="product-price">₹12,499</div>
+            <div class="product-desc">
+                Premium bridal ring with beautiful gold detailing and luxurious finish.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399870/i3_tjvgct.jpg">
+        <div class="product-info">
+            <div class="product-title">Temple Design Ring</div>
+            <div class="product-price">₹10,999</div>
+            <div class="product-desc">
+                Traditional temple-inspired ring perfect for festive and ethnic wear.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399869/i4_qadtm4.jpg">
+        <div class="product-info">
+            <div class="product-title">Designer Gold Ring</div>
+            <div class="product-price">₹8,999</div>
+            <div class="product-desc">
+                Modern designer ring combining elegance with contemporary style.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399869/i5_lmawxi.jpg">
+        <div class="product-info">
+            <div class="product-title">Premium Diamond Ring</div>
+            <div class="product-price">₹16,999</div>
+            <div class="product-desc">
+                Luxury diamond ring with premium craftsmanship and sparkling finish.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="product-row">
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399868/n4_w6dyh7.jpg">
+        <div class="product-info">
+            <div class="product-title">Classic Gold Ring</div>
+            <div class="product-price">₹9,999</div>
+            <div class="product-desc">
+                Timeless gold ring suitable for daily wear and special occasions.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399868/n2_y6bjvs.jpg">
+        <div class="product-info">
+            <div class="product-title">Wedding Ring</div>
+            <div class="product-price">₹13,499</div>
+            <div class="product-desc">
+                Elegant wedding ring designed to celebrate your special moments.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399868/n1_jngi5y.jpg">
+        <div class="product-info">
+            <div class="product-title">Antique Gold Ring</div>
+            <div class="product-price">₹11,999</div>
+            <div class="product-desc">
+                Antique-style ring featuring intricate traditional craftsmanship.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399867/n5_ynb69e.jpg">
+        <div class="product-info">
+            <div class="product-title">Ethnic Designer Ring</div>
+            <div class="product-price">₹7,999</div>
+            <div class="product-desc">
+                Ethnic ring with stylish detailing, perfect for festive occasions.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782399867/n3_dsrkxk.jpg">
+        <div class="product-info">
+            <div class="product-title">Luxury Gold Ring</div>
+            <div class="product-price">₹18,999</div>
+            <div class="product-desc">
+                Premium luxury ring crafted with a rich finish and elegant design.
+            </div>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+</div>
+
 {% endblock content %}
