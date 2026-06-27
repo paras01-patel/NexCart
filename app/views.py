@@ -100,3 +100,16 @@ def jewellery(req):
 
 def mobile(req):
     return render(req,'mobile.html')
+
+def buynow(req):
+    username = req.session.get("username")
+
+    if username:
+        return redirect("payment")
+    else:
+        messages.error(req, "Please login first.")
+        return redirect("login")
+
+
+def payment(req):
+    return render(req, "payment.html")
