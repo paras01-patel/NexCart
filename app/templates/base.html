@@ -312,6 +312,10 @@ body{
                 Logout
             </a>
 
+            <a href="{% url 'setting' %}" class="dropdown-btn">
+                    ⚙️ Settings
+                </a>
+
         {% else %}
 
             <div class="dropdown-header">
@@ -330,6 +334,8 @@ body{
         {% endif %}
 
     </div>
+    
+
 </div>
 </div>
         </nav>
@@ -358,7 +364,7 @@ body{
             </ul>
         </nav>
         <hr class="line">
-
+ 
         <!-- Content -->
         <div class="container">
             {% block content %}

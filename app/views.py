@@ -113,3 +113,11 @@ def buynow(req):
 
 def payment(req):
     return render(req, "payment.html")
+
+
+def setting(req):
+    return render(req,'setting.html')
+
+
+def help(req):
+    return render(req,'setting.html',{'help':True})
