@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views.decorators.cache import never_cache
-
+from .models import Helprequest,Report
 @never_cache
 def signup(req):
     if req.method == "POST":
@@ -119,5 +119,52 @@ def setting(req):
     return render(req,'setting.html')
 
 
-def help(req):
-    return render(req,'setting.html',{'help':True})
+
+
+def help(request):
+
+    if request.method == "POST":
+
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        issue_type = request.POST.get('issue_type')
+        order_id = request.POST.get('order_id')
+        message = request.POST.get('message')
+
+        data=Helprequest.objects.create(
+            name=name,
+            email=email,
+            issue_type=issue_type,
+            order_id=order_id,
+            message=message,
+            status="pending"
+        )
+
+        return redirect('help')
+
+    return render(request, 'setting.html', {'help': True})
+
+
+
+def report(request):
+
+    if request.method == "POST":
+
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        report_type = request.POST.get('report_type')
+        order_id = request.POST.get('order_id')
+        message = request.POST.get('message')
+
+        data=Report.objects.create(
+            name=name,
+            email=email,
+            report_type=report_type,
+            order_id=order_id,
+            message=message,
+            status="pending"
+        )
+
+        return redirect('report')
+
+    return render(request, 'setting.html', {'report': True})
