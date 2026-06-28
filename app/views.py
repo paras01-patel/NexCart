@@ -145,26 +145,35 @@ def help(request):
     return render(request, 'setting.html', {'help': True})
 
 
-
 def report(request):
 
     if request.method == "POST":
 
         name = request.POST.get('name')
         email = request.POST.get('email')
-        report_type = request.POST.get('report_type')
+        issue_type = request.POST.get('issue_type')
         order_id = request.POST.get('order_id')
         message = request.POST.get('message')
 
-        data=Report.objects.create(
+        data=Helprequest.objects.create(
             name=name,
             email=email,
-            report_type=report_type,
+            issue_type=issue_type,
             order_id=order_id,
             message=message,
             status="pending"
         )
 
-        return redirect('report')
+        return redirect('reprot')
 
-    return render(request, 'setting.html', {'report': True})
+    return render(request, 'setting.html', {'help': True})
+
+def report_is(request):
+    reports = Report.objects.all()
+    return render(request, 'adminpanel.html', {'report_is': True,'reports': reports})
+
+
+
+def help_is(req):
+    helps=Helprequest.objects.all()
+    return render(req,'adminpanel.html',{'help_is':True,'helps':helps})

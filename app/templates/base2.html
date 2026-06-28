@@ -101,7 +101,6 @@
         }
     </style>
 
-    {% block css %}{% endblock %}
 </head>
 <body>
 
@@ -111,9 +110,9 @@
         <div class="logo">NexCart</div>
 
         <ul>
-            <li><a href="">🏠 Dashboard</a></li>
-            <li><a href="">📦 Products</a></li>
-            <li><a href="">📂 Categories</a></li>
+            <li><a href="{% url 'adminpanel' %}">🏠 Dashboard</a></li>
+            <li><a href="{% url 'report_is' %}"> Issue Reports</a></li>
+            <li><a href="{% url 'help_is' %}">Help Request </a></li>
             <li><a href="">🛒 Orders</a></li>
             <li><a href="">👥 Users</a></li>
             <li><a href="">⭐ Reviews</a></li>
@@ -139,7 +138,7 @@
 
             <div class="card">
                 <h3>Dashboard Content</h3>
-                <p>Welcome to NexCart Admin Panel</p>
+            
             </div>
 
             {% endblock %}

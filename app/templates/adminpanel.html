@@ -1,1 +1,138 @@
 {% extends "base2.html" %}
+{% block content %}
+
+<style>
+.report-container{
+    padding:30px;
+    background:#f5f7fa;
+    min-height:100vh;
+}
+
+.report-title{
+    text-align:center;
+    color:#333;
+    font-size:32px;
+    margin-bottom:25px;
+}
+
+.report-table{
+    width:95%;
+    margin:auto;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.report-table th{
+    background:#0d6efd;
+    color:#fff;
+    padding:15px;
+    font-size:16px;
+    text-transform:uppercase;
+}
+
+.report-table td{
+    padding:14px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+.report-table tr:nth-child(even){
+    background:#f8f9fa;
+}
+
+.report-table tr:hover{
+    background:#eaf3ff;
+}
+
+.report-message{
+    max-width:300px;
+    word-break:break-word;
+}
+
+@media(max-width:900px){
+
+    .report-table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+    .report-title{
+        font-size:26px;
+    }
+}
+</style>
+
+{% if report_is %}
+
+<div class="report-container">
+
+    <h2 class="report-title">Report Issues</h2>
+
+    <table class="report-table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Report Type</th>
+            <th>Order ID</th>
+            <th>Message</th>
+            <th>Status</th>
+            
+        </tr>
+
+        {% for report in reports %}
+        <tr>
+            <td>{{ report.id }}</td>
+            <td>{{ report.name }}</td>
+            <td>{{ report.email }}</td>
+            <td>{{ report.report_type }}</td>
+            <td>{{ report.order_id }}</td>
+            <td class="report-message">{{ report.message }}</td>
+            <td>{{ report.status }}</td>
+        
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+{% elif help_is %}
+
+<div class="report-container">
+
+    <h2 class="report-title">Help Requests</h2>
+
+    <table class="report-table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Issue_Type</th>
+            <th>oder_id</th>
+            <th>Order Id</th>
+        </tr>
+
+        {% for help in helps %}
+        <tr>
+            <td>{{ help.id }}</td>
+            <td>{{ help.name }}</td>
+            <td>{{ help.email }}</td>
+            <td>{{ help.issue_type }}</td>
+            <td class="report-message">{{ help.message }}</td>
+            <td>{{ help.order_id }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+{% else %}
+{{ request.session.username}}
+<h1>wellcome users </h1>
+
+{% endif %}
+
+{% endblock content %}

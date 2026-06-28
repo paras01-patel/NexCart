@@ -271,15 +271,15 @@
             {% csrf_token %}
 
             <input type="text"
-                   name="name"
-                   value="{{ request.session.username|default:'' }}"
-                   placeholder="Your Name"
-                   required>
+                name="name"
+                value="{{ request.session.username|default:'' }}"
+                placeholder="Your Name"
+                required>
 
             <input type="email"
-                   name="email"
-                   placeholder="Your Email"
-                   required>
+                name="email"
+                placeholder="Your Email"
+                required>
 
             <select name="issue_type" required>
                 <option value="">Select Issue Type</option>
@@ -292,13 +292,13 @@
             </select>
 
             <input type="text"
-                   name="order_id"
-                   placeholder="Order ID (optional)">
+                name="order_id"
+                placeholder="Order ID (optional)">
 
             <textarea name="message"
-                      rows="5"
-                      placeholder="Describe your problem..."
-                      required></textarea>
+                    rows="5"
+                    placeholder="Describe your problem..."
+                    required></textarea>
 
             <button type="submit">Send Request</button>
         </form>

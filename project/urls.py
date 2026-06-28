@@ -12,7 +12,8 @@ urlpatterns = [
     path('setting/',views.setting,name='setting'),
     path('help/',views.help,name='help'),
     path('report/',views.report,name='report'),
-
+    path('report_is/',views.report_is,name='report_is'),
+    path('help_is/',views.help_is,name='help_is'),
     path('login/',views.login,name='login'),
     path('signup/',views.signup,name='signup'),
     path('logout/',views.logout,name='logout'),
