@@ -81,6 +81,7 @@
             <th>Order ID</th>
             <th>Message</th>
             <th>Status</th>
+            <th>Delete</th>
             
         </tr>
 
@@ -93,6 +94,12 @@
             <td>{{ report.order_id }}</td>
             <td class="report-message">{{ report.message }}</td>
             <td>{{ report.status }}</td>
+            <td>
+                <a href="{% url 'delete_report' report.id %}" 
+                    onclick="return confirm('Are you sure you want to delete this report?');">
+                Delete
+                </a>
+            </td>
         
         </tr>
         {% endfor %}
@@ -114,6 +121,8 @@
             <th>Issue_Type</th>
             <th>oder_id</th>
             <th>Order Id</th>
+            <th>Delete</th>
+
         </tr>
 
         {% for help in helps %}
@@ -124,6 +133,12 @@
             <td>{{ help.issue_type }}</td>
             <td class="report-message">{{ help.message }}</td>
             <td>{{ help.order_id }}</td>
+            <td>
+                <a href="{% url 'delete_help' help.id %}" 
+                    onclick="return confirm('Are you sure you want to delete this report?');">
+                Delete
+                </a>
+            </td>
         </tr>
         {% endfor %}
     </table>

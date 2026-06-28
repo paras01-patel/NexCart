@@ -177,3 +177,15 @@ def report_is(request):
 def help_is(req):
     helps=Helprequest.objects.all()
     return render(req,'adminpanel.html',{'help_is':True,'helps':helps})
+
+
+
+def delete_report(request, id):
+    report = Report.objects.get(id=id)
+    report.delete()
+    return render(request,'adminpanel.html',{'report_list':True})
+
+def delete_help(request, id):
+    help = Helprequest.objects.get(id=id)
+    help.delete()
+    return render(request,'adminpanel.html',{'help_list':True})
