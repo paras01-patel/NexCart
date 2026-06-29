@@ -1,0 +1,488 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.banner{
+    width:100%;
+    height:750px;
+    object-fit:cover;
+    display:block;
+    padding:10px;
+}
+
+.product-row{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    flex-wrap:wrap;
+    margin:40px 0;
+}
+
+.product-card{
+    width:220px;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    transition:.3s;
+    cursor:pointer;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+}
+
+.product-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    display:block;
+}
+
+.product-info{
+    padding:12px;
+}
+
+.product-title{
+    font-size:15px;
+    font-weight:600;
+    color:#111827;
+    margin-bottom:8px;
+}
+
+.product-price{
+    color:#e11d48;
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.product-desc{
+    color:#6b7280;
+    font-size:13px;
+    line-height:1.5;
+    margin-bottom:12px;
+}
+
+.buy-btn{
+    width:100%;
+    border:none;
+    background:#38bdf8;
+    color:white;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.buy-btn:hover{
+    background:#0ea5e9;
+}
+
+.buy-btn{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.buy-btn:hover{
+    background: #0056b3;
+}
+</style>
+
+<img
+class="banner"
+src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782473910/Cream_Olive_Green_Minimalist_Classic_Promotion_Special_Offer_Discount_Banner_ayh9xl.png"
+alt="Banner Image">
+
+<div class="product-row">
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742780/e22_d0yhwk.jpg">
+    <div class="product-info">
+        <div class="product-title">Sony WH-CH520</div>
+        <div class="product-price">₹4,499</div>
+        <div class="product-desc">
+            Wireless Bluetooth headphones with up to 50 hours battery life, clear sound and comfortable design.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742780/e21_trqvyz.jpg">
+    <div class="product-info">
+        <div class="product-title">boAt Nirvana 751 ANC</div>
+        <div class="product-price">₹3,999</div>
+        <div class="product-desc">
+            Active Noise Cancellation, immersive sound, soft ear cushions and up to 65 hours playback.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742780/e24_yzqug8.jpg">
+    <div class="product-info">
+        <div class="product-title">JBL Tune 760NC</div>
+        <div class="product-price">₹5,999</div>
+        <div class="product-desc">
+            Pure Bass sound, Active Noise Cancellation, lightweight design and fast charging support.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742780/e23_jin7rn.jpg">
+    <div class="product-info">
+        <div class="product-title">Noise Two Wireless</div>
+        <div class="product-price">₹2,799</div>
+        <div class="product-desc">
+            Deep bass audio, foldable design, Bluetooth 5.3 connectivity and up to 50 hours battery backup.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742780/e25_z8slkv.jpg">
+    <div class="product-info">
+        <div class="product-title">Apple AirPods Max</div>
+        <div class="product-price">₹59,900</div>
+        <div class="product-desc">
+            Premium over-ear headphones with spatial audio, Active Noise Cancellation and exceptional sound quality.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="product-row">
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742780/e20_ywg1rb.jpg" alt="">
+    <div class="product-info">
+        <div class="product-title">Apple AirPods 2nd Gen</div>
+        <div class="product-price">₹10,999</div>
+        <div class="product-desc">
+            Wireless earbuds with H1 chip, quick pairing, crystal-clear calls and up to 24 hours battery life.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742781/e18_zaclke.jpg" alt="">
+    <div class="product-info">
+        <div class="product-title">Apple AirPods 3rd Gen</div>
+        <div class="product-price">₹16,999</div>
+        <div class="product-desc">
+            Spatial Audio, adaptive EQ, sweat and water resistance with up to 30 hours battery backup.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742781/e17_j5dtq2.jpg" alt="">
+    <div class="product-info">
+        <div class="product-title">Apple AirPods Pro (2nd Gen)</div>
+        <div class="product-price">₹24,999</div>
+        <div class="product-desc">
+            Active Noise Cancellation, Transparency Mode, USB-C charging case and premium sound quality.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742781/e16_rdbchg.jpg" alt="">
+    <div class="product-info">
+        <div class="product-title">boAt Airdopes 141</div>
+        <div class="product-price">₹1,499</div>
+        <div class="product-desc">
+            42 hours playback, ENx technology for clear calls, low latency mode and fast charging support.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742781/e19_qwsyub.jpg" alt="">
+    <div class="product-info">
+        <div class="product-title">OnePlus Buds 3</div>
+        <div class="product-price">₹5,499</div>
+        <div class="product-desc">
+            Hi-Res Audio, Active Noise Cancellation, dual drivers and up to 44 hours total battery life.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+<div class="product-row">
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742781/e14_fmre4a.jpg" alt="">
+    <div class="product-info">
+        <div class="product-title">DJI Osmo Mobile SE</div>
+        <div class="product-price">₹8,999</div>
+        <div class="product-desc">
+            3-axis smartphone stabilizer with ActiveTrack, foldable design and smooth video recording.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742782/e13_chlmb9.jpg" alt="">
+    <div class="product-info">
+        <div class="product-title">DJI Osmo Mobile 6</div>
+        <div class="product-price">₹14,999</div>
+        <div class="product-desc">
+            Premium 3-axis gimbal with magnetic phone clamp, gesture control and intelligent shooting modes.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742781/e15_wkpqor.jpg" alt="">
+    <div class="product-info">
+        <div class="product-title">Zhiyun Smooth 5S</div>
+        <div class="product-price">₹16,999</div>
+        <div class="product-desc">
+            Professional smartphone gimbal with built-in fill light, strong motors and cinematic stabilization.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742782/e12_s129tk.jpg" alt="">
+    <div class="product-info">
+        <div class="product-title">Hohem iSteady M6</div>
+        <div class="product-price">₹12,499</div>
+        <div class="product-desc">
+            AI tracking, 3-axis stabilization, OLED display and long battery life for content creators.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742783/e11_pzco8y.jpg" alt="">
+    <div class="product-info">
+        <div class="product-title">Insta360 Flow</div>
+        <div class="product-price">₹15,999</div>
+        <div class="product-desc">
+            AI-powered smartphone gimbal with Deep Track, built-in selfie stick and portable foldable design.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+</div>
+
+
+
+<div class="product-row">
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742783/e1_jzngjr.jpg">
+    <div class="product-info">
+        <div class="product-title">Amazon Fire TV Stick Lite</div>
+        <div class="product-price">₹2,999</div>
+        <div class="product-desc">
+            Full HD streaming, Alexa Voice Remote Lite, access to thousands of apps and OTT platforms.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742783/e4_xmciut.jpg">
+    <div class="product-info">
+        <div class="product-title">Amazon Fire TV Stick (3rd Gen)</div>
+        <div class="product-price">₹3,999</div>
+        <div class="product-desc">
+            Full HD streaming with Alexa Voice Remote, Dolby Atmos support and fast performance.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742783/e3_f6hpny.jpg">
+    <div class="product-info">
+        <div class="product-title">Amazon Fire TV Stick 4K</div>
+        <div class="product-price">₹5,999</div>
+        <div class="product-desc">
+            Ultra HD 4K streaming, Dolby Vision, HDR10+ support and Alexa Voice Remote.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742783/e2_nkynta.jpg">
+    <div class="product-info">
+        <div class="product-title">Amazon Fire TV Stick 4K Max</div>
+        <div class="product-price">₹6,499</div>
+        <div class="product-desc">
+            Wi-Fi 6 support, ultra-fast streaming, Dolby Atmos and smooth 4K entertainment experience.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742783/e5_s8lnqn.jpg">
+    <div class="product-info">
+        <div class="product-title">Amazon Fire TV Cube</div>
+        <div class="product-price">₹13,999</div>
+        <div class="product-desc">
+            Hands-free Alexa, 4K Ultra HD streaming, Dolby Vision, powerful octa-core processor and smart home control.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+<div class="product-row">
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742783/e8_jqbppq.jpg">
+    <div class="product-info">
+        <div class="product-title">Apple USB-C to USB-C Cable</div>
+        <div class="product-price">₹1,999</div>
+        <div class="product-desc">
+            1-meter USB-C cable with fast charging support and high-speed data transfer.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742783/e7_mbhd4u.jpg">
+    <div class="product-info">
+        <div class="product-title">Samsung USB-C Cable</div>
+        <div class="product-price">₹799</div>
+        <div class="product-desc">
+            Original Type-C charging cable with 25W fast charging and durable braided design.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742783/e9_rcmkp9.jpg">
+    <div class="product-info">
+        <div class="product-title">OnePlus SUPERVOOC Cable</div>
+        <div class="product-price">₹999</div>
+        <div class="product-desc">
+            Supports 100W SUPERVOOC fast charging with premium build quality and fast data transfer.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742782/e6_qjtvrv.jpg">
+    <div class="product-info">
+        <div class="product-title">boAt Type-C Cable</div>
+        <div class="product-price">₹499</div>
+        <div class="product-desc">
+            Strong braided USB Type-C cable with fast charging support and 1.5-meter length.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://res.cloudinary.com/dqudfkpvd/image/upload/v1782742782/e10_kszfsv.jpg">
+    <div class="product-info">
+        <div class="product-title">Anker PowerLine III USB-C Cable</div>
+        <div class="product-price">₹1,299</div>
+        <div class="product-desc">
+            Ultra-durable USB-C cable with Power Delivery support and high-speed charging performance.
+        </div>
+        <a href="{% url 'buynow' %}" class="buy-btn">
+            Buy Now
+        </a>
+    </div>
+</div>
+
+</div>
+
+{% endblock content %}

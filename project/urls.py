@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.populer,name='populer'),
     path('jewellery/',views.jewellery,name='jewellery'),
     path('mobile/',views.mobile,name='mobile'),
+    path('electronics/',views.electronics,name='electronics'),
     path('buynow/',views.buynow,name='buynow'),
     path('payment/',views.payment,name='payment'),
     path('setting/',views.setting,name='setting'),

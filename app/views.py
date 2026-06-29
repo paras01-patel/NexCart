@@ -101,6 +101,10 @@ def jewellery(req):
 def mobile(req):
     return render(req,'mobile.html')
 
+def electronics(req):
+    return render(req,'electronics.html')
+
+
 def buynow(req):
     username = req.session.get("username")
 
